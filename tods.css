@@ -1,0 +1,315 @@
+/* Typographic and Opentype Default Stylesheet [TODS]. For details and credits see Github. */
+
+
+/*
+1. Reset
+*/
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset	{
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/*
+2. Web fonts
+*/
+
+@font-face {
+	font-family: 'Literata';
+	src:	url('/fonts/Literata-var.woff2') format('woff2') tech(variations),
+			url('/fonts/Literata-var.woff2') format('woff2-variations');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Literata';
+	src:	url('/fonts/Literata-Italic-var.woff2') format('woff2') tech(variations),
+			url('/fonts/Literata-Italic-var.woff2') format('woff2-variations');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inconsolata';
+	src:	url('/fonts/Inconsolata.woff2') format('woff2') tech(variations),
+			url('/fonts/Inconsolata.woff2') format('woff2-variations');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
+	font-style: normal;
+	font-display: fallback;
+	size-adjust:105%;
+}
+
+
+/*
+3. Global defaults
+*/
+
+body {
+	line-height: 1.5;
+	text-decoration-skip-ink: auto;
+	font-optical-sizing: auto;
+	font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
+	font-kerning: normal;
+}
+
+button, input, label { 
+	line-height: 1.1;
+}
+
+
+/*
+4. Block spacing 
+*/
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.prose {
+  --flow-space: 1.5em;
+}
+
+
+/*
+5. OpenType utility classes
+*/
+
+.dlig { font-variant-ligatures: discretionary-ligatures; }
+.hlig { font-variant-ligatures: historical-ligatures; }
+.pnum {	font-variant-numeric: proportional-nums; }
+.tnum { font-variant-numeric: tabular-nums;	}
+.lnum {	font-variant-numeric: lining-nums;	 }
+.onum {	font-variant-numeric: oldstyle-nums;	 }
+.zero {	font-variant-numeric: slashed-zero;	}
+.frac {	font-variant-numeric: diagonal-fractions;	}
+.afrc {	font-variant-numeric: stacked-fractions;	 }
+.ordn {	font-variant-numeric: ordinal;	 }
+.smcp {	font-variant-caps: small-caps; }
+.c2sc { font-variant-caps: unicase; }
+.hist {	font-variant-alternates: historical-forms; }
+
+@font-feature-values "Fancy Font Name" { /* Match font-family webfont */
+	/* All features are font-specific. */
+	@styleset { cursive: 1; swoopy: 7 16; }
+	@character-variant { ampersand: 1; capital-q: 2; }
+	@stylistic { two-story-g: 1; straight-y: 2; }
+	@swash { swishy: 1; flowing: 2; }
+	@ornaments { clover: 1; fleuron: 2; }
+	@annotation { circled: 1; boxed: 2; }
+}
+
+.ss01 {	font-variant-alternates: styleset(cursive); }
+.ss02 {	font-variant-alternates: styleset(swoopy);	 }
+
+.cv01 {	font-variant-alternates: character-variant(ampersand);	 }
+.cv02 {	font-variant-alternates: character-variant(capital-q);	 }
+
+.salt1 { font-variant-alternates: stylistic(two-story-g); }
+.salt2 { font-variant-alternates: stylistic(straight-y); }
+
+.swsh1 { font-variant-alternates: swash(swishy); }
+.swsh2 { font-variant-alternates: swash(flowing); }
+
+.ornm1 { font-variant-alternates: ornaments(clover);	 }
+.ornm2 { font-variant-alternates: ornaments(fleuron); }
+
+.nalt1 { font-variant-alternates: annotation(circled);	 }
+.nalt2 { font-variant-alternates: annotation(boxed);	 }
+
+:root {
+    --opentype-case: "case" off;
+    --opentype-sinf: "sinf" off;
+}
+.case { --opentype-case: "case" on; }
+.sinf { --opentype-sinf: "sinf" on; }
+
+* { 
+    font-feature-settings: var(--opentype-case, "case" off), var(--opentype-sinf, "sinf" off);
+}
+
+
+/*
+6. Generic helper classes
+*/
+
+.centered {
+	text-align: center;
+	text-wrap: balance;
+}
+
+.uppercase {
+	text-transform: uppercase;
+    --opentype-case: "case" on;
+}
+
+.smallcaps {
+	font-variant-caps: all-small-caps;
+	font-variant-numeric: oldstyle-nums;	
+}
+
+
+/*
+7. Prose styling defaults
+*/
+
+.prose {
+	text-wrap: pretty;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-size-adjust: 0.507;
+}
+
+strong, b, th { 
+	font-weight: bold;
+	font-size-adjust: 0.514; /* Check for the different weights you may be using */
+}
+
+
+/*
+8. Headings
+*/
+
+h1, h2, h3, h4 { 
+	line-height: 1.1;
+	font-size-adjust: 0.514;
+	font-variant-numeric: lining-nums;
+}
+
+h1 {
+	font-variant-ligatures: discretionary-ligatures;
+	font-size-adjust: 0.521; /* check if this changes with an optical sizing axis */
+}
+
+h1.uppercase {
+	font-variant-caps: titling-caps;
+}
+
+/*
+9. Sup and sub
+*/
+
+@supports ( font-variant-position: sub ) {
+	sub, .sub {
+		vertical-align: baseline;
+		font-size: 100%;
+		line-height: inherit;
+		font-variant-position: sub;
+	}
+}
+@supports ( font-variant-position: super ) {
+	sup, .sup {
+		vertical-align: baseline;
+		font-size: 100%;
+		line-height: inherit;
+		font-variant-position: super;
+	}
+}
+
+.chemical { 
+	--opentype-sinf: "sinf" on;
+}
+
+/*
+10. Tables, times and maths
+*/
+
+td, math, time[datetime*=":"] {
+	font-variant-numeric: tabular-nums lining-nums slashed-zero;	
+}
+
+
+/*
+11. Quotes
+*/
+
+:lang(en) > * {	quotes: '“' '”' '‘' '’' ; } /* “Generic English ‘style’” */
+:lang(en-GB) > * {	quotes: '‘' '’' '“' '”'; } /* ‘British “style”’ */
+:lang(fr) > * { quotes: "« " " »" "‹ " " ›"; } /* « French ‹ style › » */
+
+q::before { content: open-quote }
+q::after  { content: close-quote }
+
+.quoted, .quoted q {
+    quotes: '“' '”' '‘' '’';
+}
+.quoted p:first-of-type::before {
+    content: open-quote;
+}
+.quoted p:last-of-type::after  {
+    content: close-quote;
+}
+
+.quoted p:first-of-type::before {
+    margin-inline-start: -0.87ch;
+}
+.quoted p {
+    hanging-punctuation: first last;
+}
+@supports(hanging-punctuation: first last) {
+    .quoted p:first-of-type::before {
+        margin-inline-start: 0;
+    }
+}
+
+
+/*
+12. Hyphenation
+Remember to set lang
+*/
+
+.prose {
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-lines: 2;
+	
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;	
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+}
+
+.prose pre, .prose code, .prose var, .prose samp, .prose kbd,
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+	-webkit-hyphens: manual;
+	hyphens: manual;
+}
+
+
+/*
+13. Dark mode
+*/
+
+:root {
+  --vf-grad: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vf-grad: -50; /* Grade is font-specific. */
+  }
+}
+
+* {
+  font-variation-settings: "GRAD" var(--vf-grad, 0);
+}
