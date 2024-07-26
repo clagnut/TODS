@@ -145,14 +145,21 @@ Set generous spacing between primary block elements (in this case it’s the sam
 ```
 .dlig { font-variant-ligatures: discretionary-ligatures; }
 .hlig { font-variant-ligatures: historical-ligatures; }
+.dlig.hlig { font-variant-ligatures: discretionary-ligatures historical-ligatures; } /* Apply both historic and discretionary */
+
 .pnum {	font-variant-numeric: proportional-nums; }
 .tnum { font-variant-numeric: tabular-nums;	}
 .lnum {	font-variant-numeric: lining-nums;	 }
 .onum {	font-variant-numeric: oldstyle-nums;	 }
 .zero {	font-variant-numeric: slashed-zero;	}
-.frac {	font-variant-numeric: diagonal-fractions;	}
-.afrc {	font-variant-numeric: stacked-fractions;	 }
-.ordn {	font-variant-numeric: ordinal;	 }
+.pnum.zero { font-variant-numeric: proportional-nums slashed-zero; } /* Apply slashed zeroes to proportional numerals */
+.tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
+.lnum.zero {	 font-variant-numeric: lining-nums slashed-zero; }
+.onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
+.frac {	font-variant-numeric: diagonal-fractions; }
+.afrc {	font-variant-numeric: stacked-fractions; }
+.ordn {	font-variant-numeric: ordinal; }
+
 .smcp {	font-variant-caps: small-caps; }
 .c2sc { font-variant-caps: unicase; }
 .hist {	font-variant-alternates: historical-forms; }
