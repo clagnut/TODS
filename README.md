@@ -8,7 +8,7 @@ Within the styles is mildly opinionated best practice, which will help set suita
 
 TODS uses OpenType features extensively and variable font axes where available. It makes full use of the cascade to set sensible defaults high up, with overrides applied further down. It also contains some handy utility classes.
 
-You can apply the `TODS.css` stylesheet in its entirety, as its full functionality relies on progressive enhancement within both browsers and fonts. Anything that is not supported will safely be ignored. The only possible exceptions to this are sub/superscripts and application of a grade axis in dark mode.
+You can apply the `TODS.css` stylesheet in its entirety, as its full functionality relies on progressive enhancement within both browsers and fonts. Anything that is not supported will safely be ignored. The only possible exceptions to this are sub/superscripts and application of a grade axis in dark mode, as these are font-specific and could behave unexpectedly depending on the capability of the font.
 
 ## Walkthrough of the TODS.css stylesheet
 
