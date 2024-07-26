@@ -110,7 +110,6 @@ button, input, label {
 .afrc {	font-variant-numeric: stacked-fractions; }
 .ordn {	font-variant-numeric: ordinal; }
 .smcp {	font-variant-caps: small-caps; }
-.c2sc { font-variant-caps: unicase; }
 .hist {	font-variant-alternates: historical-forms; }
 
 @font-feature-values "Fancy Font Name" { /* Match font-family webfont */

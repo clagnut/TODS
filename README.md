@@ -260,7 +260,7 @@ When fully capitalising text, ensure punctuation designed to be used within caps
 }
 ```
 
-Use old style-numerals within runs of small caps.
+Transform both upper and lowercase letters to small caps, and use old style-numerals within runs of small caps so they match size-wise.
 
 ### 7. Prose styling defaults
 

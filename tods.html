@@ -14,6 +14,7 @@
 }
 body {
 	font-family: "Literata", ui-serif, serif;
+	font-size: 1.5rem;
 }
 
 :root {
@@ -34,20 +35,12 @@ body {
     --opentype-sinf: "sinf" on;
 }
 
-p {
-	font-size: 2rem;
-}
-
 p.spam {
 	--opentype-case: "case" on;
 }
 
 .smcp {
 	font-variant-caps: small-caps;
-}
-
-.c2sc {
-	font-variant-caps: unicase;
 }
 
 .smallcaps {
@@ -168,10 +161,6 @@ h1 {
 .afrc {	font-variant-numeric: stacked-fractions; }
 .ordn {	font-variant-numeric: ordinal; }
 
-.smcp {	font-variant-caps: small-caps; }
-.c2sc { font-variant-caps: unicase; }
-.hist {	font-variant-alternates: historical-forms; }
-
 </style>
 <body>
 <h1>Typographic and Opentype Default Stylesheet (TODS)</h1>
@@ -182,10 +171,9 @@ h1 {
 <p class="spam">SPAM AT INFO@TOXIE.NL (NO DUCK-PICS PLS)</p>
 
 <p>
-Abc ABC 123 [abc]{abc}&amp;?!<br>
-<span class="smcp">Abc ABC 123 [abc]{abc}&amp;?!</span><br>
-<span class="c2sc">Abc ABC 123 [abc]{abc}&amp;?!</span><br>
-<span class="smallcaps">Abc ABC 123 [abc]{abc}&amp;?!</span>
+Abc ABC 123 CSS3 CSS4 [abc]{abc}&amp;?!<br>
+<span class="smcp">Abc ABC 123 CSS3 CSS4 [abc]{abc}&amp;?!</span><br>
+<span class="smallcaps">Abc ABC 123 CSS3 CSS4 [abc]{abc}&amp;?!</span>
 </p>
 
 <p>
@@ -214,7 +202,8 @@ Abc ABC 123 [abc]{abc}&amp;?!<br>
 </div>
 
 <div class="prose">
-	<h1>Enormous elephants perambulating. Mississippi alligators organising confrontations. </h1>
+	<h1>Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. (No hyphenation)</h1>
+	<p>Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations.</p>
 </div>
 
 <p class="">0123456789 default</p>
