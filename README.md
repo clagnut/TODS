@@ -149,12 +149,12 @@ Set generous spacing between primary block elements (in this case it’s the sam
 
 .pnum {	font-variant-numeric: proportional-nums; }
 .tnum { font-variant-numeric: tabular-nums;	}
-.lnum {	font-variant-numeric: lining-nums;	 }
-.onum {	font-variant-numeric: oldstyle-nums;	 }
+.lnum {	font-variant-numeric: lining-nums; }
+.onum {	font-variant-numeric: oldstyle-nums; }
 .zero {	font-variant-numeric: slashed-zero;	}
 .pnum.zero { font-variant-numeric: proportional-nums slashed-zero; } /* Apply slashed zeroes to proportional numerals */
 .tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
-.lnum.zero {	 font-variant-numeric: lining-nums slashed-zero; }
+.lnum.zero { font-variant-numeric: lining-nums slashed-zero; }
 .onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
 .frac {	font-variant-numeric: diagonal-fractions; }
 .afrc {	font-variant-numeric: stacked-fractions; }
@@ -183,11 +183,11 @@ Other Opentype features can have multiple glyphs, accessible via an index number
 ```
 /* Stylesets */
 .ss01 {	font-variant-alternates: styleset(cursive); }
-.ss02 {	font-variant-alternates: styleset(swoopy);	 }
+.ss02 {	font-variant-alternates: styleset(swoopy); }
 
 /* Character variants */
-.cv01 {	font-variant-alternates: character-variant(ampersand);	 }
-.cv02 {	font-variant-alternates: character-variant(capital-q);	 }
+.cv01 {	font-variant-alternates: character-variant(ampersand); }
+.cv02 {	font-variant-alternates: character-variant(capital-q); }
 
 /* Stylistic alternates */
 .salt1 { font-variant-alternates: stylistic(two-story-g); }
@@ -198,12 +198,12 @@ Other Opentype features can have multiple glyphs, accessible via an index number
 .swsh2 { font-variant-alternates: swash(flowing); }
 
 /* Ornaments */
-.ornm1 { font-variant-alternates: ornaments(clover);	 }
+.ornm1 { font-variant-alternates: ornaments(clover); }
 .ornm2 { font-variant-alternates: ornaments(fleuron); }
 
 /* Alternative numerals */
-.nalt1 { font-variant-alternates: annotation(circled);	 }
-.nalt2 { font-variant-alternates: annotation(boxed);	 }
+.nalt1 { font-variant-alternates: annotation(circled); }
+.nalt2 { font-variant-alternates: annotation(boxed); }
 ```
 
 Handy utility classes showing how to access the font feature values you set up earlier using the `font-variant-alternates` property. 
@@ -247,7 +247,7 @@ When centring text you’ll almost always want the text to be ‘balanced’, me
 ```
 .uppercase {
 	text-transform: uppercase;
-    --opentype-case: "case" on;
+	--opentype-case: "case" on;
 }
 ```
 
@@ -461,4 +461,4 @@ Reduce grade if available to prevent bloom of inverted type.
 }
 ```
 
-Not all fonts have a grade (GRAD) axis, and the grade number is font-specific.
+Not all fonts have a grade (`GRAD`) axis, and the grade number is font-specific. We're using the customer property method because `font-variation-settings` provides low-level control meaning each subsequent use of the property completely overrides prior use - the values are not inherited or combined, unlike with `font-variant` for example.

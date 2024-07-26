@@ -105,7 +105,7 @@ button, input, label {
 .pnum.zero { font-variant-numeric: proportional-nums slashed-zero; }
 .tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
 .onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
-.lnum.zero {	 font-variant-numeric: lining-nums slashed-zero; }
+.lnum.zero { font-variant-numeric: lining-nums slashed-zero; }
 .frac {	font-variant-numeric: diagonal-fractions; }
 .afrc {	font-variant-numeric: stacked-fractions; }
 .ordn {	font-variant-numeric: ordinal; }
