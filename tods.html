@@ -1,219 +1,233 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="tods.css" rel="stylesheet" />
+
 <style>
+
 @font-face {
-  font-family: "Literata";
-  src: url("Literata-var.woff2");
-  font-display:block;
+    font-family: "RobotoFlex";
+    src: url("RobotoFlex.ttf");
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: block;
 }
-@font-face {
-  font-family: "RobotoFlex";
-  src: url("RobotoFlex.ttf");
-  font-display:block;
-}
-body {
-	font-family: "Literata", ui-serif, serif;
-	font-size: 1.5rem;
-}
+
+/* Fluid type sizing.
+@link https://utopia.fyi/type/calculator?c=320,17,1.2,1240,21,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-    --opentype-case: "case" off;
-    --opentype-sinf: "sinf" off;
+  --step--1: clamp(0.8854rem, 0.8509rem + 0.1725vw, 0.9846rem);
+  --step-0: clamp(1.0625rem, 0.9755rem + 0.4348vw, 1.3125rem);
+  --step-1: clamp(1.275rem, 1.1099rem + 0.8253vw, 1.7496rem);
+  --step-2: clamp(1.53rem, 1.251rem + 1.3951vw, 2.3322rem);
+  --step-3: clamp(1.836rem, 1.3933rem + 2.2135vw, 3.1088rem);
+  --step-4: clamp(2.2032rem, 1.5281rem + 3.3753vw, 4.144rem);
+}
+body {
+    margin-inline: 3vw;
+	font-family: "Literata", ui-serif, serif;
+    font-size: var(--step-0);
+}
+h1 {
+    font-size: var(--step-4);
+}
+h2 {
+    font-size: var(--step-2);
+}
+h3 {
+    font-size: var(--step-1);
 }
 
-/* Apply current state of all custom properties whenever a class is being applied */
-* { font-feature-settings: var(--opentype-case, "case" off), var(--opentype-sinf, "sinf" off);
+.prose {
+	max-inline-size: calc(36 * var(--step-0));
+	margin-inline: auto;
+    margin-block: 3em;
 }
 
-/* If class is applied, update custom property */
-.case {
-    --opentype-case: "case" on;
+.prose h1 {
+    margin-inline: calc(-1 * (48vw - 50%)); /* create negative margins to expand heading outside of prose block */
 }
 
-.sinf {
-    --opentype-sinf: "sinf" on;
+.prose h1 + p {
+  --flow-space: 3em;
 }
 
-p.spam {
-	--opentype-case: "case" on;
+.prose h2 + p, .prose h3 + p {
+  --flow-space: 0.75em;
 }
 
-.smcp {
-	font-variant-caps: small-caps;
+blockquote {
+    margin-inline-start: 1lh;
 }
 
-.smallcaps {
-	font-variant-caps: all-small-caps;
-	font-variant-numeric: oldstyle-nums;	
+code {
+    font-family: "Inconsolata", ui-monospace, monospace;
 }
 
-td, time[datetime*=":"] {
-	font-variant-numeric: tabular-nums lining-nums slashed-zero;	
+table {
+	border-collapse: collapse;
 }
 
-q {
-	quotes: '‘' '’' '“' '”';
+tbody {
+	border-top: 0.125em solid #ddd;
+	border-bottom: 0.125em solid #ddd;
 }
 
-/* punctuation order for blockquotes */
-.quoted, .quoted q {
-    quotes: '“' '”' '‘' '’';
-}
-.quoted p:first-of-type::before {
-    content: open-quote;
-}
-.quoted p:last-of-type::after  {
-    content: close-quote;
-}
-.quoted p:first-of-type::before {
-    margin-inline-start: -0.87ch;
-}
-.quoted p {
-    hanging-punctuation: first last;
-}
-@supports(hanging-punctuation: first last) {
-    .quoted p:first-of-type::before {
-        margin-inline-start: 0;
-    }
+th, td {
+	padding: .25em .75em;
+	vertical-align: top;
+    text-align: left;
+	border-bottom: 0.0625em solid #ddd;
 }
 
-@supports ( font-variant-position:sub ) {
-	sub, .sub {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: sub;
-	}
+th:first-child, td:first-child {
+	padding-left: 0.25em;
 }
 
-@supports ( font-variant-position: super ) {
-	sup, .sup {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: super;
-	}
+th:last-child, td:last-child {
+	padding-right: 0.25em;
 }
 
+td.nums, th.nums, tr.nums th, tr.nums td {
+	text-align: right;
+}
 
 .gradecompare {
 	display: flex;
 	gap:0.5em;
-}
-
-.gradecompare h2 {
-	font-size:3rem;
-}
-.gradecompare p {
-	font-size:1.5rem;
+	font-family: "RobotoFlex", ui-sans-serif, sans-serif;
 }
 .gradecompare div {
 	flex-basis: 50%;
-	font-family: "RobotoFlex", fantasy;
 	padding-inline:1em;
+    padding-block:0.5em;
+    border: 3px solid #000;
 }
-
-.dark {
+.inverted {
 	background:#000;
 	color: #fff;
 }
 
-:root {
-  --vf-GRAD: 0;
+
+
+.spam {
+    --flow-space: 0;
+    font-size: var(--step--1);
+    font-variation-settings: "OPSZ" 7, "opsz" 7;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --vf-GRAD: 0;
-  }
-}
-
-.grade {
-    --vf-GRAD: -100;
-}
-
-* {
-  font-variation-settings: "GRAD" var(--vf-GRAD, 0);
-}
-
-.prose {
-	max-width: 59rem;
-	margin-inline:auto;
-	hyphens: auto;
-	background: #eee;
-}
-
-h1 {
-	hyphens: manual;
-}
-
-.pnum {	font-variant-numeric: proportional-nums; }
-.tnum { font-variant-numeric: tabular-nums;	}
-.lnum {	font-variant-numeric: lining-nums;	 }
-.onum {	font-variant-numeric: oldstyle-nums;	 }
-.zero {	font-variant-numeric: slashed-zero;	}
-.pnum.zero { font-variant-numeric: proportional-nums slashed-zero; } /* Apply slashed zeroes to proportional numerals */
-.tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
-.lnum.zero {	 font-variant-numeric: lining-nums slashed-zero; }
-.onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
-.frac {	font-variant-numeric: diagonal-fractions; }
-.afrc {	font-variant-numeric: stacked-fractions; }
-.ordn {	font-variant-numeric: ordinal; }
-
 </style>
+
 <body>
-<h1>Typographic and Opentype Default Stylesheet (TODS)</h1>
-<p>This page will show the various aspects of TODS in action. For now it's a test page for some of the styles.</p>
+<div class="prose flow">
+<h1 class="centered">Typographic and Opentype Default Stylesheet (TODS)</h1>
 
-<hr>
+<p>The concept is that <abbr class="smallcaps">TODS</abbr> sets sensible typographic defaults for use on prose (a column of text like this one). For full details see the <a href="https://github.com/clagnut/TODS">readme in the Github repo</a>. The page you’re reading uses fairly random bits of text to demonstrate most aspects of <abbr class="smallcaps">TODS</abbr>, which you can toggle on and off.</p>
 
-<p class="spam">SPAM AT INFO@TOXIE.NL (NO DUCK-PICS PLS)</p>
+<p><em>This page could be much better and is missing some stuff, such as a toggle to turn <abbr class="smallcaps">TODS</abbr> on and off, dark mode, and some advanced OpenType features like stylesets. Feel free to branch and edit.</em></p>
 
-<p>
-Abc ABC 123 CSS3 CSS4 [abc]{abc}(abc)&amp;?!<br>
-<span class="smcp">Abc ABC 123 CSS3 CSS4 [abc]{abc}(abc)&amp;?!</span><br>
-<span class="smallcaps">Abc ABC 123 CSS3 CSS4 [abc]{abc}(abc)&amp;?!</span>
-</p>
+<h2>1440 ‒ 1500, the Incunabula</h2>
+<p>The word incunabula comes from the Latin cunae, meaning <q>cradle.</q> It can describe the earliest stages in the development of anything, but it has come to stand particularly for those book produced before 1500. The meagre information about Gutenberg and his works at the time of his death has not been substantially added to since.</p>
 
-<p>
-<time>09:54</time><br>
-<time datetime="09:54">09:54</time>
-</p>
+<h3>The 42-line bible</h3>
 
-<p>Browsers insert <q>quotation marks</q></p>
+<p>By 1448 he had returned to Mainz and had obtained a loan of 150 gulden from a relative there. This was insufficient for his needs since he was again seeking financial backing only two years later. This time he borrowed 800 gulden, at 6 per cent interest, from Johann Fust.</p>
+
+
+<h2>The job of typography</h2>
+
+<p>The revered type designer Hermann Zapf said that, for designers, <q>typographic design is sometimes misconstrued as a form of private self-expression</q><sup>(2)</a></sup>. Typography is not art – it is craft and design with purpose. It is there to perform a service for the reader. Quoting another great designer, Emil Ruder said in 1969<sup>(3)</sup>:</p>
 
 <blockquote class="quoted">
-<p>Browsers insert <q>quotation marks</q> at the opening and closing of q elements and for the open-quote and close-quote values of the content property. Each opening or closing quote is replaced by one of the strings from the value of quotes, based on the depth of nesting, or, if quotes is explicitly set to or otherwise resolves to auto, the quotation marks used are language dependent.</p>
+  <p>Typography has one plain duty before it and that is to convey information in writing. No argument or consideration can absolve typography from this duty. A printed work which cannot be read becomes a product without purpose.</p>
 </blockquote>
 
-<p>Caffeine is C<sub>10</sub>H<sub>16</sub>N<sub>5</sub>O<sub>13</sub>P<sub>3</sub> and can be found in coffee. Also using scientific inferiors: <span class="sinf">C10H16N5O13P3</span>.</p>
-<p>a<sup>2</sup> a<sup>[2a]</sup> a<sup>this</sup> a<sup>that3</sup> and so on.</p>
+<p>A website which cannot be read is a product without purpose. Typography’s chief role is to ensure legibility and readability, but that’s not its only job. Typography should invite the reader into the text.</p>
+
+<h2>Positional numeral systems</h2>
+<p>In any standard positional numeral system, a number is conventionally written as (x)<sub>y</sub> with x as the string of digits and y as its base. For example, comparing values in hexadecimal, decimal, and octal one might write <span class="lnum">C<sub>12</sub>=12<sub>10</sub>=14<sub>8</sub></span>. Alternatively you could abbreviate like this: <span class="lnum">C<sub>hex</sub>=12<sub>dec</sub>=14<sub>oct</sub></span>.</p>
+
+<h3>Caffeine</h3>
+
+<p>Caffeine is a central nervous system <abbr class="smallcaps">(CNS)</abbr> stimulant of the methylxanthine class. Its chemical formula is C<sub>10</sub>H<sub>16</sub>N<sub>5</sub>O<sub>13</sub>P<sub>3</sub>, which you should really typeset using scientific inferiors instead of subscripts: <span class="sinf">C10H16N5O13P3</span>.</p>
+
+<h3>Populations</h3>
+
+<p>Here is recent data on some European countries.</p>
+
+<table class="ex-alignment">
+<thead>
+    <tr><th>Country</th><th class='nums'>Area</th><th class='nums'>Population</th><th class='nums'>GDP</th><th>Capital</th></tr>
+</thead>
+<tbody>
+<tr><td>Austria</td><td class='nums'>83,858</td><td class='nums'>8,169,929</td><td class='nums'>339</td><td>Vienna</td></tr>
+<tr><td>Belgium</td><td class='nums'>30,528</td><td class='nums'>11,007,000</td><td class='nums'>410</td><td>Brussels</td></tr>
+<tr><td>Denmark</td><td class='nums'>43,094</td><td class='nums'>5,564,219</td><td class='nums'>271</td><td>Copenhagen</td></tr>
+<tr><td>France</td><td class='nums'>547,030</td><td class='nums'>66,104,000</td><td class='nums'>2,181</td><td>Paris</td></tr>
+<tr><td>Germany</td><td class='nums'>357,021</td><td class='nums'>80,716,000</td><td class='nums'>3,032</td><td>Berlin</td></tr>
+<tr><td>Greece</td><td class='nums'>131,957</td><td class='nums'>11,123,034</td><td class='nums'>176</td><td>Athens</td></tr>
+    </tbody>
+</table>
 
 <div class="gradecompare">
-	<div class="">
-		<h2>Bigger Longer Heading</h2>
+	<div>
+		<h2>Heading</h2>
 		<p>Each opening or closing quote is replaced by one of the strings from the value of quotes</p>
 	</div>
-	<div class="dark grade">
-		<h2>Bigger Longer Heading</h2>
+	<div class="inverted">
+		<h2>Heading</h2>
 		<p>Each opening or closing quote is replaced by one of the strings from the value of quotes</p>
 	</div>
 </div>
 
-<div class="prose">
-	<h1>Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. (No hyphenation)</h1>
-	<p>Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations.</p>
+<h2>Colophon</h2>
+
+<p>The fonts used on the page are Literata and Roboto Flex.</p>
+
+<p>As of <time data-js="clock" datetime="00:00:00">00:00:00</time> we had <span data-js="counter" class="tnum">1000</span> likes.</p>
+
+<p class="uppercase spam">SEND YOUR SPAM TO SPAM@CLEARLEFT.COM (NO DUCK-PICS PLS).</p>
+
 </div>
 
-<p class="">0123456789 default</p>
-<p class="zero">0123456789 slashed zero</p>
-<p class="tnum">0123456789 tabular</p>
-<p class="tnum zero">0123456789 tabular and slashed zero?</p>
+<script>
+// Borrowed from https://codepen.io/barthendrix/pen/gOJXRRe with thanks
 
-<div class="tnum">
-	<p class="zero">0123456789 tabular and slashed zero? (no because zero overrides tabular)</p>
-</div>
+setInterval(showTime, 1000);
+animateCounter();
+
+function showTime() {
+  const clock = document.querySelector('[data-js="clock"]');
+  if(!clock) return;
+
+  const date = new Date();
+  const hour = date.getHours(); // 0 - 23
+  const minute = date.getMinutes(); // 0 - 59
+  const second = date.getSeconds(); // 0 - 59
+
+  const time = `${doubleDigits(hour)}:${doubleDigits(minute)}:${doubleDigits(second)}`;
+  
+  clock.innerText = time;
+  clock.dateTime = time;
+}
+ 
+function animateCounter () {
+  const counter = document.querySelector('[data-js="counter"]');
+  if(!counter) return;
+
+  let curValue = parseInt(counter.innerHTML);
+  setInterval(() => {
+    curValue ++;
+    counter.innerText = curValue.toString();
+  }, 50);
+}
+
+function doubleDigits(value) {
+  return value = (value < 10) ? `0${value}` : value;
+}
+</script>
 
 </body>
 </html>
