@@ -14,7 +14,7 @@ You can apply the `TODS.css` stylesheet in its entirety, as its full functionali
 
 ### 1. Reset
 
-Based on Andy Bell's [more modern CSS reset](https://piccalil.li/blog/a-more-modern-css-reset/). The typographic rules in the reset are extracted here. You might like to apply the other rules too.
+Based on Andy Bell’s [more modern CSS reset](https://piccalil.li/blog/a-more-modern-css-reset/). The typographic rules in the reset are extracted here. You might like to apply the other rules too.
 
 ```
 html {
@@ -27,7 +27,7 @@ html {
 Prevent font size inflation when rotating from portrait to landscape. The [best explainer for this is by Kilian](https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/). He also explains why we still need those ugly prefixes too.
 
 ```
-body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset	{
+body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
   margin: 0;
 }
 ```
@@ -52,13 +52,13 @@ Use modern variable font syntax so that only supporting browsers get the variabl
 
 ```
 @font-face {
-	font-family: 'Literata';
-	src:	url('/fonts/Literata-var.woff2') format('woff2') tech(variations),
-			url('/fonts/Literata-var.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: normal;
-	font-display: fallback;
+    font-family: 'Literata';
+    src:    url('/fonts/Literata-var.woff2') format('woff2') tech(variations),
+            url('/fonts/Literata-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: fallback;
 }
 ```
 
@@ -68,13 +68,13 @@ For main body fonts, use `fallback` for how the browser should behave while the 
 
 ```
 @font-face {
-	font-family: 'Literata';
-	src:	url('/fonts/Literata-Italic-var.woff2') format('woff2') tech(variations),
-			url('/fonts/Literata-Italic-var.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: italic;
-	font-display: swap;
+    font-family: 'Literata';
+    src:    url('/fonts/Literata-Italic-var.woff2') format('woff2') tech(variations),
+            url('/fonts/Literata-Italic-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: italic;
+    font-display: swap;
 }
 ```
 
@@ -82,14 +82,14 @@ For italics use `swap` for an extremely small block period and an infinite swap 
 
 ```
 @font-face {
-	font-family: 'Plex Sans';
-	src:	url('/fonts/Plex-Sans-var.woff2') format('woff2') tech(variations),
-			url('/fonts/Plex-Sans-var.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: normal;
-	font-display: fallback;
-	size-adjust:105%; /* make monospace fonts slightly bigger to match body text. Adjust to suit - you might need to make them smaller */
+    font-family: 'Plex Sans';
+    src:    url('/fonts/Plex-Sans-var.woff2') format('woff2') tech(variations),
+            url('/fonts/Plex-Sans-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: fallback;
+    size-adjust:105%; /* make monospace fonts slightly bigger to match body text. Adjust to suit - you might need to make them smaller */
 }
 ```
 
@@ -101,12 +101,12 @@ Set some sensible defaults that can be used throughout the whole web page. Overr
 
 ```
 body {
-	line-height: 1.5;
-	text-decoration-skip-ink: auto;
+    line-height: 1.5;
+    text-decoration-skip-ink: auto;
 
-	font-optical-sizing: auto;
-	font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
-	font-kerning: normal;
+    font-optical-sizing: auto;
+    font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
+    font-kerning: normal;
 }
 ```
 
@@ -114,7 +114,7 @@ Set a nice legible line height that gets inherited. The `font-` properties are s
 
 ```
 button, input, label { 
-	line-height: 1.1; 
+    line-height: 1.1; 
 }
 ```
 
@@ -147,34 +147,37 @@ Set generous spacing between primary block elements (in this case it’s the sam
 .hlig { font-variant-ligatures: historical-ligatures; }
 .dlig.hlig { font-variant-ligatures: discretionary-ligatures historical-ligatures; } /* Apply both historic and discretionary */
 
-.pnum {	font-variant-numeric: proportional-nums; }
-.tnum { font-variant-numeric: tabular-nums;	}
-.lnum {	font-variant-numeric: lining-nums; }
-.onum {	font-variant-numeric: oldstyle-nums; }
-.zero {	font-variant-numeric: slashed-zero;	}
+.pnum { font-variant-numeric: proportional-nums; }
+.tnum { font-variant-numeric: tabular-nums;    }
+.lnum { font-variant-numeric: lining-nums; }
+.onum { font-variant-numeric: oldstyle-nums; }
+.zero { font-variant-numeric: slashed-zero;    }
 .pnum.zero { font-variant-numeric: proportional-nums slashed-zero; } /* Apply slashed zeroes to proportional numerals */
 .tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
 .lnum.zero { font-variant-numeric: lining-nums slashed-zero; }
 .onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
-.frac {	font-variant-numeric: diagonal-fractions; }
-.afrc {	font-variant-numeric: stacked-fractions; }
-.ordn {	font-variant-numeric: ordinal; }
+.tnum.lnum.zero { font-variant-numeric: tabular-nums lining-nums slashed-zero; }
+.frac { font-variant-numeric: diagonal-fractions; }
+.afrc { font-variant-numeric: stacked-fractions; }
+.ordn { font-variant-numeric: ordinal; }
 
-.smcp {	font-variant-caps: small-caps; }
+.smcp { font-variant-caps: small-caps; }
 .c2sc { font-variant-caps: unicase; }
-.hist {	font-variant-alternates: historical-forms; }
+.hist { font-variant-alternates: historical-forms; }
 ```
 
 Helper utilities matching on/off Opentype layout features available through high level CSS properties.
 
 ```
-@font-feature-values "Fancy Font Name" { /* match font-family webfont */
-	@styleset { cursive: 1; swoopy: 7 16; }
-	@character-variant { ampersand: 1; capital-q: 2; }
-	@stylistic { two-story-g: 1; straight-y: 2; }
-	@swash { swishy: 1; flowing: 2; wowzers: 3 }
-	@ornaments { clover: 1; fleuron: 2; }
-	@annotation { circled: 1; boxed: 2; }
+@font-feature-values "Fancy Font Name" { /* match font-family webfont name */
+
+    /* All features are font-specific. */
+    @styleset { cursive: 1; swoopy: 7 16; }
+    @character-variant { ampersand: 1; capital-q: 2; }
+    @stylistic { two-story-g: 1; straight-y: 2; }
+    @swash { swishy: 1; flowing: 2; wowzers: 3 }
+    @ornaments { clover: 1; fleuron: 2; }
+    @annotation { circled: 1; boxed: 2; }
 }
 ```
 
@@ -182,12 +185,12 @@ Other Opentype features can have multiple glyphs, accessible via an index number
 
 ```
 /* Stylesets */
-.ss01 {	font-variant-alternates: styleset(cursive); }
-.ss02 {	font-variant-alternates: styleset(swoopy); }
+.ss01 { font-variant-alternates: styleset(cursive); }
+.ss02 { font-variant-alternates: styleset(swoopy); }
 
 /* Character variants */
-.cv01 {	font-variant-alternates: character-variant(ampersand); }
-.cv02 {	font-variant-alternates: character-variant(capital-q); }
+.cv01 { font-variant-alternates: character-variant(ampersand); }
+.cv02 { font-variant-alternates: character-variant(capital-q); }
 
 /* Stylistic alternates */
 .salt1 { font-variant-alternates: stylistic(two-story-g); }
@@ -237,8 +240,8 @@ Some utilities to help ensure best typographic practice.
 
 ```
 .centered {
-	text-align: center;
-	text-wrap: balance;
+    text-align: center;
+    text-wrap: balance;
 }
 ```
 
@@ -246,8 +249,8 @@ When centring text you’ll almost always want the text to be ‘balanced’, me
 
 ```
 .uppercase {
-	text-transform: uppercase;
-	--opentype-case: "case" on;
+    text-transform: uppercase;
+    --opentype-case: "case" on;
 }
 ```
 
@@ -255,8 +258,8 @@ When fully capitalising text, ensure punctuation designed to be used within caps
 
 ```
 .smallcaps {
-	font-variant-caps: all-small-caps;
-	font-variant-numeric: oldstyle-nums;	
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;    
 }
 ```
 
@@ -268,9 +271,9 @@ Assign a `.prose` class to your running text, that is to say an entire piece of 
 
 ```
 .prose {
-	text-wrap: pretty;
-	font-variant-numeric: oldstyle-nums proportional-nums;
-	font-size-adjust: 0.507;
+    text-wrap: pretty;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    font-size-adjust: 0.507;
 }
 ```
 
@@ -280,8 +283,8 @@ Also adjust the size of fallback fonts to match the webfont to maintain legibili
 
 ```
 strong, b, th { 
-	font-weight: bold;
-	font-size-adjust: 0.514; 
+    font-weight: bold;
+    font-size-adjust: 0.514; 
 }
 ```
 
@@ -291,17 +294,17 @@ Apply a different adjustment to elements which are typically emboldened by defau
 
 ```
 h1, h2, h3, h4 { 
-	line-height: 1.1; 
-	font-size-adjust: 0.514;
-	font-variant-numeric: lining-nums; }
+    line-height: 1.1; 
+    font-size-adjust: 0.514;
+    font-variant-numeric: lining-nums; }
 ```
 
 Set shorter line heights on your main headings. Set an aspect ratio for fallback fonts - check for different weights of headings. Use lining numerals in headings, especially when using Title Case.
 
 ```
 h1 {
-	font-variant-ligatures: discretionary-ligatures; 
-	font-size-adjust: 0.521;
+    font-variant-ligatures: discretionary-ligatures; 
+    font-size-adjust: 0.521;
 }
 ```
 
@@ -309,7 +312,7 @@ Turn on fancy ligatures for main headings. If the font has an optical sizing axi
 
 ```
 h1.uppercase {
-	font-variant-caps: titling-caps;
+    font-variant-caps: titling-caps;
 }
 ```
 
@@ -321,29 +324,29 @@ Use proper super- and subscript characters. Apply to `SUB` and `SUP` elements as
 
 ```
 @supports ( font-variant-position: sub ) {
-	sub, .sub {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: sub;
-	}
+    sub, .sub {
+        vertical-align: baseline;
+        font-size: 100%;
+        line-height: inherit;
+        font-variant-position: sub;
+    }
 }
 
 @supports ( font-variant-position: super ) {
-	sup, .sup {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: super;
-	}
+    sup, .sup {
+        vertical-align: baseline;
+        font-size: 100%;
+        line-height: inherit;
+        font-variant-position: super;
+    }
 }
 ```
 
-If font-variant-position is not specified, browsers will synthesise sub/superscripts, so we need to manually turn off the synthesis. This is the only way to use a font's proper sub/sup glyphs, however it's **only safe to use this if** you know your font has glyphs for all the characters you are sub/superscripting. If the font lacks those characters (most only have sub/superscript numbers, not letters), then only Firefox (correctly) synthesizes sup and sub - all other browsers will display normal characters in the regular way as we turned the synthesis off.
+If font-variant-position is not specified, browsers will synthesise sub/superscripts, so we need to manually turn off the synthesis. This is the only way to use a font’s proper sub/sup glyphs, however it’s **only safe to use this if** you know your font has glyphs for all the characters you are sub/superscripting. If the font lacks those characters (most only have sub/superscript numbers, not letters), then only Firefox (correctly) synthesises sup and sub - all other browsers will display normal characters in the regular way as we turned the synthesis off.
 
 ```
 .chemical { 
-	--opentype-sinf: "sinf" on;
+    --opentype-sinf: "sinf" on;
 }
 ```
 
@@ -353,7 +356,7 @@ For chemical formulae like H2O, use scientific inferiors instead of `SUB`.
 
 ```
 td, math, time[datetime*=":"] {
-	font-variant-numeric: tabular-nums lining-nums slashed-zero;	
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;    
 }
 ```
 
@@ -363,8 +366,8 @@ Make sure all numbers in tables are lining tabular numerals, adding slashed zero
 Use curly quotes and hang punctuation around blockquotes.
 
 ```
-:lang(en) > * {	quotes: '“' '”' '‘' '’' ; } /* “Generic English ‘style’” */
-:lang(en-GB) > * {	quotes: '‘' '’' '“' '”'; } /* ‘British “style”’ */
+:lang(en) > * {    quotes: '“' '”' '‘' '’' ; } /* “Generic English ‘style’” */
+:lang(en-GB) > * {    quotes: '‘' '’' '“' '”'; } /* ‘British “style”’ */
 :lang(fr) > * { quotes: "« " " »" "‹ " " ›"; } /* « French ‹ style › » */
 ```
 
@@ -417,26 +420,26 @@ Turn on hyphenation for prose. Language is required in order for the browser to 
 
 ```
 .prose {
-	-webkit-hyphens: auto;
-	-webkit-hyphenate-limit-before: 4;
-	-webkit-hyphenate-limit-after: 3;
-	-webkit-hyphenate-limit-lines: 2;
-	
-	hyphens: auto;
-	hyphenate-limit-chars: 7 4 3;
-	hyphenate-limit-lines: 2;	
-	hyphenate-limit-zone: 8%;
-	hyphenate-limit-last: always;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+    
+    hyphens: auto;
+    hyphenate-limit-chars: 7 4 3;
+    hyphenate-limit-lines: 2;    
+    hyphenate-limit-zone: 8%;
+    hyphenate-limit-last: always;
 }
 ```
 
-Include additional refinements to hyphenation. Respectively, these stop short words being hyphenated, prevent ladders of hyphens, and reduce overall hyphenation a bit. Safari uses legacy properties to achieve some of the same effects, hence the ugly prefixes and slightly different syntax.
+Include [additional refinements](https://clagnut.com/blog/2395/) to hyphenation. Respectively, these stop short words being hyphenated, prevent ladders of hyphens, and reduce overall hyphenation a bit. Safari uses legacy properties to achieve some of the same effects, hence the ugly prefixes and slightly different syntax.
 
 ```
 .prose pre, .prose code, .prose var, .prose samp, .prose kbd,
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-	-webkit-hyphens: manual;
-	hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
 }
 ```
 
