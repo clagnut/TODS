@@ -11,7 +11,7 @@ html {
   text-size-adjust: none;
 }
 
-body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset	{
+body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
   margin: 0;
 }
 
@@ -29,34 +29,34 @@ select {
 */
 
 @font-face {
-	font-family: 'Literata';
-	src:	url('/fonts/Literata-var.woff2') format('woff2') tech(variations),
-			url('/fonts/Literata-var.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: normal;
-	font-display: fallback;
+    font-family: 'Literata';
+    src:    url('Literata-var.woff2') format('woff2') tech(variations),
+            url('Literata-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: fallback;
 }
 
 @font-face {
-	font-family: 'Literata';
-	src:	url('/fonts/Literata-Italic-var.woff2') format('woff2') tech(variations),
-			url('/fonts/Literata-Italic-var.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: italic;
-	font-display: swap;
+    font-family: 'Literata';
+    src:    url('Literata-Italic-var.woff2') format('woff2') tech(variations),
+            url('Literata-Italic-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
-	font-family: 'Inconsolata';
-	src:	url('/fonts/Inconsolata.woff2') format('woff2') tech(variations),
-			url('/fonts/Inconsolata.woff2') format('woff2-variations');
-	font-weight: 1 1000;
-	font-stretch: 50% 200%;
-	font-style: normal;
-	font-display: fallback;
-	size-adjust:105%;
+    font-family: 'Inconsolata';
+    src:    url('Inconsolata.woff2') format('woff2') tech(variations),
+            url('Inconsolata.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: fallback;
+    size-adjust:105%;
 }
 
 
@@ -65,15 +65,15 @@ select {
 */
 
 body {
-	line-height: 1.5;
-	text-decoration-skip-ink: auto;
-	font-optical-sizing: auto;
-	font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
-	font-kerning: normal;
+    line-height: 1.5;
+    text-decoration-skip-ink: auto;
+    font-optical-sizing: auto;
+    font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
+    font-kerning: normal;
 }
 
 button, input, label { 
-	line-height: 1.1;
+    line-height: 1.1;
 }
 
 
@@ -97,36 +97,37 @@ button, input, label {
 .dlig { font-variant-ligatures: discretionary-ligatures; }
 .hlig { font-variant-ligatures: historical-ligatures; }
 .dlig.hlig { font-variant-ligatures: discretionary-ligatures historical-ligatures; }
-.pnum {	font-variant-numeric: proportional-nums; }
-.tnum { font-variant-numeric: tabular-nums;	}
-.lnum {	font-variant-numeric: lining-nums; }
-.onum {	font-variant-numeric: oldstyle-nums; }
-.zero {	font-variant-numeric: slashed-zero; }
+.pnum { font-variant-numeric: proportional-nums; }
+.tnum { font-variant-numeric: tabular-nums;    }
+.lnum { font-variant-numeric: lining-nums; }
+.onum { font-variant-numeric: oldstyle-nums; }
+.zero { font-variant-numeric: slashed-zero; }
 .pnum.zero { font-variant-numeric: proportional-nums slashed-zero; }
 .tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
 .onum.zero { font-variant-numeric: oldstyle-nums slashed-zero; }
 .lnum.zero { font-variant-numeric: lining-nums slashed-zero; }
-.frac {	font-variant-numeric: diagonal-fractions; }
-.afrc {	font-variant-numeric: stacked-fractions; }
-.ordn {	font-variant-numeric: ordinal; }
-.smcp {	font-variant-caps: small-caps; }
-.hist {	font-variant-alternates: historical-forms; }
+.tnum.lnum.zero { font-variant-numeric: tabular-nums lining-nums slashed-zero; }
+.frac { font-variant-numeric: diagonal-fractions; }
+.afrc { font-variant-numeric: stacked-fractions; }
+.ordn { font-variant-numeric: ordinal; }
+.smcp { font-variant-caps: small-caps; }
+.hist { font-variant-alternates: historical-forms; }
 
-@font-feature-values "Fancy Font Name" { /* Match font-family webfont */
-	/* All features are font-specific. */
-	@styleset { cursive: 1; swoopy: 7 16; }
-	@character-variant { ampersand: 1; capital-q: 2; }
-	@stylistic { two-story-g: 1; straight-y: 2; }
-	@swash { swishy: 1; flowing: 2; }
-	@ornaments { clover: 1; fleuron: 2; }
-	@annotation { circled: 1; boxed: 2; }
+@font-feature-values "Fancy Font Name" { /* Match font-family webfont name */
+    /* All features are font-specific. The names 'cursive', 'swoopy', etc are user-defined. */
+    @styleset { cursive: 1; swoopy: 7 16; }
+    @character-variant { ampersand: 1; capital-q: 2; }
+    @stylistic { two-story-g: 1; straight-y: 2; }
+    @swash { swishy: 1; flowing: 2; }
+    @ornaments { clover: 1; fleuron: 2; }
+    @annotation { circled: 1; boxed: 2; }
 }
 
-.ss01 {	font-variant-alternates: styleset(cursive); }
-.ss02 {	font-variant-alternates: styleset(swoopy); }
+.ss01 { font-variant-alternates: styleset(cursive); }
+.ss02 { font-variant-alternates: styleset(swoopy); }
 
-.cv01 {	font-variant-alternates: character-variant(ampersand); }
-.cv02 {	font-variant-alternates: character-variant(capital-q); }
+.cv01 { font-variant-alternates: character-variant(ampersand); }
+.cv02 { font-variant-alternates: character-variant(capital-q); }
 
 .salt1 { font-variant-alternates: stylistic(two-story-g); }
 .salt2 { font-variant-alternates: stylistic(straight-y); }
@@ -157,18 +158,18 @@ button, input, label {
 */
 
 .centered {
-	text-align: center;
-	text-wrap: balance;
+    text-align: center;
+    text-wrap: balance;
 }
 
 .uppercase {
-	text-transform: uppercase;
+    text-transform: uppercase;
     --opentype-case: "case" on;
 }
 
 .smallcaps {
-	font-variant-caps: all-small-caps;
-	font-variant-numeric: oldstyle-nums;	
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;    
 }
 
 
@@ -177,14 +178,14 @@ button, input, label {
 */
 
 .prose {
-	text-wrap: pretty;
-	font-variant-numeric: oldstyle-nums proportional-nums;
-	font-size-adjust: 0.507;
+    text-wrap: pretty;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    font-size-adjust: 0.507;
 }
 
 strong, b, th { 
-	font-weight: bold;
-	font-size-adjust: 0.514; /* Check for the different weights you may be using */
+    font-weight: bold;
+    font-size-adjust: 0.514; /* Check for the different weights you may be using */
 }
 
 
@@ -193,18 +194,18 @@ strong, b, th {
 */
 
 h1, h2, h3, h4 { 
-	line-height: 1.1;
-	font-size-adjust: 0.514;
-	font-variant-numeric: lining-nums;
+    line-height: 1.1;
+    font-size-adjust: 0.514;
+    font-variant-numeric: lining-nums;
 }
 
 h1 {
-	font-variant-ligatures: discretionary-ligatures;
-	font-size-adjust: 0.521; /* check if this changes with an optical sizing axis */
+    font-variant-ligatures: discretionary-ligatures;
+    font-size-adjust: 0.521; /* check if this changes with an optical sizing axis */
 }
 
 h1.uppercase {
-	font-variant-caps: titling-caps;
+    font-variant-caps: titling-caps;
 }
 
 /*
@@ -212,24 +213,24 @@ h1.uppercase {
 */
 
 @supports ( font-variant-position: sub ) {
-	sub, .sub {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: sub;
-	}
+    sub, .sub {
+        vertical-align: baseline;
+        font-size: 100%;
+        line-height: inherit;
+        font-variant-position: sub;
+    }
 }
 @supports ( font-variant-position: super ) {
-	sup, .sup {
-		vertical-align: baseline;
-		font-size: 100%;
-		line-height: inherit;
-		font-variant-position: super;
-	}
+    sup, .sup {
+        vertical-align: baseline;
+        font-size: 100%;
+        line-height: inherit;
+        font-variant-position: super;
+    }
 }
 
 .chemical { 
-	--opentype-sinf: "sinf" on;
+    --opentype-sinf: "sinf" on;
 }
 
 /*
@@ -237,7 +238,7 @@ h1.uppercase {
 */
 
 td, math, time[datetime*=":"] {
-	font-variant-numeric: tabular-nums lining-nums slashed-zero;	
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;    
 }
 
 
@@ -245,21 +246,18 @@ td, math, time[datetime*=":"] {
 11. Quotes
 */
 
-:lang(en) > * {	quotes: '“' '”' '‘' '’' ; } /* “Generic English ‘style’” */
-:lang(en-GB) > * {	quotes: '‘' '’' '“' '”'; } /* ‘British “style”’ */
-:lang(fr) > * { quotes: "« " " »" "‹ " " ›"; } /* « French ‹ style › » */
+/* :lang(en) > * { quotes: '“' '”' '‘' '’'  ; } /* “Generic English ‘style’” */
+/* :lang(fr) > * { quotes: '« ' ' »' '‹ ' ' ›'; } /* « French ‹ style › » */
+:lang(en-GB) > * { quotes: '‘' '’' '“' '”' ; } /* ‘British “style”’ */
 
 q::before { content: open-quote }
 q::after  { content: close-quote }
 
-.quoted, .quoted q {
-    quotes: '“' '”' '‘' '’';
-}
 .quoted p:first-of-type::before {
-    content: open-quote;
+    content: '“';
 }
 .quoted p:last-of-type::after  {
-    content: close-quote;
+    content: '”';
 }
 
 .quoted p:first-of-type::before {
@@ -281,27 +279,27 @@ Remember to set lang
 */
 
 .prose {
-	-webkit-hyphens: auto;
-	-webkit-hyphenate-limit-before: 4;
-	-webkit-hyphenate-limit-after: 3;
-	-webkit-hyphenate-limit-lines: 2;
-	
-	hyphens: auto;
-	hyphenate-limit-chars: 7 4 3;
-	hyphenate-limit-lines: 2;	
-	hyphenate-limit-zone: 8%;
-	hyphenate-limit-last: always;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+    
+    hyphens: auto;
+    hyphenate-limit-chars: 7 4 3;
+    hyphenate-limit-lines: 2;    
+    hyphenate-limit-zone: 8%;
+    hyphenate-limit-last: always;
 }
 
 .prose pre, .prose code, .prose var, .prose samp, .prose kbd,
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-	-webkit-hyphens: manual;
-	hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
 }
 
 
 /*
-13. Dark mode
+13. Dark mode and inverted text
 */
 
 :root {
@@ -310,8 +308,12 @@ Remember to set lang
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --vf-grad: -50; /* Grade is font-specific. */
+    --vf-grad: -100; /* Grade is font-specific. */
   }
+}
+
+.inverted {
+    --vf-grad: -100;
 }
 
 * {
