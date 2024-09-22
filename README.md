@@ -1,8 +1,8 @@
 # Typography and Opentype Default Stylesheet (TODS)
  
-Initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). 
+This open source project was initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). 
 
-The idea is to set sensible typographic defaults for use on prose (a column of text). The main principle is that it can be used as starting point for all projects, so doesn't include design-specific aspects such as font choice, type scale and layout (including how you might like to set the line-length).
+The idea is to set sensible typographic defaults for use on prose (a column of text), making particular use of the font features provided by OpenType. The main principle is that it can be used as starting point for all projects, so doesn't include design-specific aspects such as font choice, type scale or layout (including how you might like to set the line-length).
 
 Within the styles is mildly opinionated best practice, which will help set suitable styles should you forget. This means you can also use the style sheet as a checklist, even if you don't want to implement it as-is.
 
@@ -10,11 +10,29 @@ TODS uses OpenType features extensively and variable font axes where available. 
 
 You can apply the `TODS.css` stylesheet in its entirety, as its full functionality relies on progressive enhancement within both browsers and fonts. Anything that is not supported will safely be ignored. The only possible exceptions to this are sub/superscripts and application of a grade axis in dark mode, as these are font-specific and could behave unexpectedly depending on the capability of the font.
 
-## Walkthrough of the TODS.css stylesheet
+In order to preview some of the TODS features, you can check out the preview page `tods.html` and toggle `TODS.css` on and off. (This needs more work as the text is a bit of a mish-mash of examples and instructions, and its missing most of the utility classes. But that's what open source is for... free to fork, improve and add back into the repo.
+
+## Walkthrough of the `TODS.css` stylesheet
+
+Table of contents:
+
+1. Reset
+2. Web fonts
+3. Global defaults
+4. Block spacing
+5. Opentype utility classes
+6. Generic help classes
+7. Prose styling defaults
+8. Headings
+9. Superscripts and subscripts
+10. Tables and numbers
+11. Quotes
+12. Hyphenation
+13. Dark mode/inverted text
 
 ### 1. Reset
 
-Based on Andy Bell’s [more modern CSS reset](https://piccalil.li/blog/a-more-modern-css-reset/). The typographic rules in the reset are extracted here. You might like to apply the other rules too.
+Based on Andy Bell’s [more modern CSS reset](https://piccalil.li/blog/a-more-modern-css-reset/). Only the typographic rules in his reset are used here. You might like to apply the other rules too.
 
 ```
 html {
@@ -318,7 +336,7 @@ h1.uppercase {
 
 When setting a heading in all caps, use titling capitals which are specially designed for setting caps at larger sizes.
 
-### 9. Sup and sub
+### 9. Superscripts and subscripts
 
 Use proper super- and subscript characters. Apply to `SUB` and `SUP` elements as well as utility classes for when semantic sub/superscripts are not required.
 
@@ -352,7 +370,7 @@ If font-variant-position is not specified, browsers will synthesise sub/superscr
 
 For chemical formulae like H2O, use scientific inferiors instead of `SUB`.
 
-### 10. Tables, times and maths
+### 10. Tables and numbers
 
 ```
 td, math, time[datetime*=":"] {
@@ -363,6 +381,7 @@ td, math, time[datetime*=":"] {
 Make sure all numbers in tables are lining tabular numerals, adding slashed zeroes for clarity. This could usefully apply where a time is specifically marked up, as well as in mathematics.
 
 ### 11. Quotes
+
 Use curly quotes and hang punctuation around blockquotes.
 
 ```
@@ -416,6 +435,7 @@ Append quotes to the first and last paragraphs in the blockquote.
 Hang the punctuation outside of the blockquote. Firstly manually hang punctuation with a negative margin,  then remove the manual intervention and use `hanging-punctuation` if supported.
 
 ### 12. Hyphenation
+
 Turn on hyphenation for prose. Language is required in order for the browser to use the correct hyphenation dictionary.
 
 ```
@@ -445,7 +465,8 @@ Include [additional refinements](https://clagnut.com/blog/2395/) to hyphenation.
 
 Turn hyphens off for monospace and headings.
 
-### 13. Dark mode
+### 13. Dark mode/inverted text
+
 Reduce grade if available to prevent bloom of inverted type.
 
 ```
