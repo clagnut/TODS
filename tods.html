@@ -2,9 +2,57 @@
 <html lang="en-GB">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link href="tods.css" rel="stylesheet" />
+<title>Typographic and Opentype Default Stylesheet (TODS)</title>
+<link href="tods.css" rel="stylesheet" id="tods-css" />
 
 <style>
+/*
+1. Reset
+*/
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/*
+2. Web fonts
+*/
+
+
+@font-face {
+    font-family: 'Literata';
+    src:    url('Literata-var.woff2') format('woff2') tech(variations),
+            url('Literata-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Literata';
+    src:    url('Literata-Italic-var.woff2') format('woff2') tech(variations),
+            url('Literata-Italic-var.woff2') format('woff2-variations');
+    font-weight: 1 1000;
+    font-stretch: 50% 200%;
+    font-style: italic;
+    font-display: swap;
+}
 
 @font-face {
     font-family: "RobotoFlex";
@@ -13,6 +61,10 @@
     font-stretch: 50% 200%;
     font-style: normal;
     font-display: block;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1.5em);
 }
 
 /* Fluid type sizing.
@@ -28,8 +80,12 @@
 }
 body {
     margin-inline: 3vw;
+    line-height: 1.5;
 	font-family: "Literata", ui-serif, serif;
     font-size: var(--step-0);
+}
+h1, h2, h3, h4 { 
+    line-height: 1.1;
 }
 h1 {
     font-size: var(--step-4);
@@ -41,21 +97,21 @@ h3 {
     font-size: var(--step-1);
 }
 
-.prose {
+.flow {
 	max-inline-size: calc(36 * var(--step-0));
 	margin-inline: auto;
     margin-block: 3em;
 }
 
-.prose h1 {
+.flow h1 {
     margin-inline: calc(-1 * (48vw - 50%)); /* create negative margins to expand heading outside of prose block */
 }
 
-.prose h1 + p {
+.flow h1 + p {
   --flow-space: 3em;
 }
 
-.prose h2 + p, .prose h3 + p {
+.flow h2 + p, .flow h3 + p {
   --flow-space: 0.75em;
 }
 
@@ -111,16 +167,49 @@ td.nums, th.nums, tr.nums th, tr.nums td {
 	color: #fff;
 }
 
-
-
 .spam {
     --flow-space: 0;
     font-size: var(--step--1);
     font-variation-settings: "OPSZ" 7, "opsz" 7;
 }
+
+.toggle-form {
+    font-family: ui-sans-serif, sans-serif;
+    background:#ddd;
+    color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-block:0.5em;
+}
+.toggle-form form {
+    display: flex;
+    gap:0.25em;
+    justify-content: center;
+    line-height: 1.1;
+}
+.toggle-form label {
+    font-size: var(--step--1);
+}
+
+footer p {
+    padding-top: 80vh;
+    padding-bottom: 2em;
+    font-size: var(--step--1);
+    text-align:center;
+}
+
 </style>
 
 <body>
+<div class="toggle-form">
+<form>
+    <label for="tods-switch">Toggle TODS</label>
+    <input type="checkbox" checked switch id="tods-switch" />
+</form>    
+</div>
+
 <div class="prose flow">
 <h1 class="centered">Typographic and Opentype Default Stylesheet (TODS)</h1>
 
@@ -171,6 +260,14 @@ td.nums, th.nums, tr.nums th, tr.nums td {
     </tbody>
 </table>
 
+<h2>Colophon</h2>
+
+<p>The fonts used on the page are Literata and Roboto Flex.</p>
+
+<p>As of <time data-js="clock" datetime="00:00:00">00:00:00</time> we had <span data-js="counter" class="tnum">1000</span> likes.</p>
+
+<p class="uppercase spam">SEND YOUR SPAM TO SPAM@CLEARLEFT.COM (NO DUCK-PICS PLS).</p>
+
 <div class="gradecompare">
 	<div>
 		<h2>Heading</h2>
@@ -182,21 +279,12 @@ td.nums, th.nums, tr.nums th, tr.nums td {
 	</div>
 </div>
 
-<h2>Colophon</h2>
-
-<p>The fonts used on the page are Literata and Roboto Flex.</p>
-
-<p>As of <time data-js="clock" datetime="00:00:00">00:00:00</time> we had <span data-js="counter" class="tnum">1000</span> likes.</p>
-
-<p class="uppercase spam">SEND YOUR SPAM TO SPAM@CLEARLEFT.COM (NO DUCK-PICS PLS).</p>
-
 </div>
+
+<footer><p>This space intentionally left blank.</p></footer>
 
 <script>
 // Borrowed from https://codepen.io/barthendrix/pen/gOJXRRe with thanks
-
-setInterval(showTime, 1000);
-animateCounter();
 
 function showTime() {
   const clock = document.querySelector('[data-js="clock"]');
@@ -227,6 +315,26 @@ function animateCounter () {
 function doubleDigits(value) {
   return value = (value < 10) ? `0${value}` : value;
 }
+
+function enableStyleToggle() {
+  const todsToggle = document.getElementById('tods-switch');
+  const todsLink = document.getElementById('tods-css');
+
+  if(!todsToggle || !todsLink) return;
+
+  if(!todsToggle.checked) {
+    todsLink.removeAttribute("disabled");
+  }
+
+  todsToggle.addEventListener('change', () => {
+    todsLink.toggleAttribute("disabled");
+  })
+}
+
+setInterval(showTime, 1000);
+animateCounter();
+enableStyleToggle();
+
 </script>
 
 </body>
