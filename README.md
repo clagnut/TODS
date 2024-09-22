@@ -12,7 +12,7 @@ You can apply the `TODS.css` stylesheet in its entirety, as its full functionali
 
 ## Walkthrough of the TODS.css stylesheet
 
-### 1. Reset
+### 1. Reset {#hreset}
 
 Based on Andy Bell’s [more modern CSS reset](https://piccalil.li/blog/a-more-modern-css-reset/). The typographic rules in the reset are extracted here. You might like to apply the other rules too.
 
