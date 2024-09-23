@@ -1,6 +1,6 @@
 # Typography and Opentype Default Stylesheet (TODS)
  
-This open source project was initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). 
+This open source project was initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). See the original [blog post introducing TODS](https://clagnut.com/blog/2433) for more context.
 
 The idea is to set sensible typographic defaults for use on prose (a column of text), making particular use of the font features provided by OpenType. The main principle is that it can be used as starting point for all projects, so doesn't include design-specific aspects such as font choice, type scale or layout (including how you might like to set the line-length).
 
