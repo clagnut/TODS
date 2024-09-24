@@ -247,7 +247,7 @@ td, math, time[datetime*=":"] {
 */
 
 /* :lang(en) > * { quotes: '“' '”' '‘' '’'  ; } /* “Generic English ‘style’” */
-/* :lang(fr) > * { quotes: '« ' ' »' '‹ ' ' ›'; } /* « French ‹ style › » */
+:lang(fr) > * { quotes: '«\00202F' '\00202F»' '“' '”'; } /* « French “style” » */
 :lang(en-GB) > * { quotes: '‘' '’' '“' '”' ; } /* ‘British “style”’ */
 
 q::before { content: open-quote }

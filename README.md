@@ -387,10 +387,10 @@ Use curly quotes and hang punctuation around blockquotes.
 ```
 :lang(en) > * {    quotes: '“' '”' '‘' '’' ; } /* “Generic English ‘style’” */
 :lang(en-GB) > * {    quotes: '‘' '’' '“' '”'; } /* ‘British “style”’ */
-:lang(fr) > * { quotes: "« " " »" "‹ " " ›"; } /* « French ‹ style › » */
+:lang(fr) > * { quotes: '«\00202F' '\00202F»' '“' '”'; } /* « French “style” » */
 ```
 
-Set punctuation order for inline quotes. Quotes are language-specific, so set a `lang` attribute on your `HTML` element or send the language via a server header.
+Set punctuation order for inline quotes. Quotes are language-specific, so set a `lang` attribute on your `HTML` element or send the language via a server header. Note the narrow non-breaking spaces encoded in the French example.
 
 ```
 q::before { content: open-quote }
