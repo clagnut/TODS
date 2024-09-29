@@ -142,14 +142,14 @@ button, input, label {
 .nalt2 { font-variant-alternates: annotation(boxed); }
 
 :root {
-    --opentype-case: "case" off;
-    --opentype-sinf: "sinf" off;
+    --opentype-case: off;
+    --opentype-sinf: off;
 }
-.case { --opentype-case: "case" on; }
-.sinf { --opentype-sinf: "sinf" on; }
+.case { --opentype-case: on; }
+.sinf { --opentype-sinf: on; }
 
-* { 
-    font-feature-settings: var(--opentype-case, "case" off), var(--opentype-sinf, "sinf" off);
+* {
+    font-feature-settings: "case" var(--opentype-case, off), "sinf" var(--opentype-sinf, off);
 }
 
 
@@ -164,7 +164,7 @@ button, input, label {
 
 .uppercase {
     text-transform: uppercase;
-    --opentype-case: "case" on;
+    --opentype-case: on;
 }
 
 .smallcaps {
@@ -229,8 +229,8 @@ h1.uppercase {
     }
 }
 
-.chemical { 
-    --opentype-sinf: "sinf" on;
+.chemical {
+    --opentype-sinf: on;
 }
 
 /*

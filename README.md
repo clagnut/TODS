@@ -231,22 +231,22 @@ Handy utility classes showing how to access the font feature values you set up e
 
 ```
 :root {
-    --opentype-case: "case" off;
-    --opentype-sinf: "sinf" off;
+    --opentype-case: off;
+    --opentype-sinf: off;
 }
 
 /* If class is applied, update custom property */
 .case {
-    --opentype-case: "case" on;
+    --opentype-case: on;
 }
 
 .sinf {
-    --opentype-sinf: "sinf" on;
+    --opentype-sinf: on;
 }
 
 /* Apply current state of all custom properties, defaulting to off */
-* { 
-    font-feature-settings: var(--opentype-case, "case" off), var(--opentype-sinf, "sinf" off);
+* {
+    font-feature-settings: "case" var(--opentype-case, off), "sinf" var(--opentype-sinf, off);
 }
 ```
 
@@ -268,7 +268,7 @@ When centring text you’ll almost always want the text to be ‘balanced’, me
 ```
 .uppercase {
     text-transform: uppercase;
-    --opentype-case: "case" on;
+    --opentype-case: on;
 }
 ```
 
@@ -363,8 +363,8 @@ Use proper super- and subscript characters. Apply to `SUB` and `SUP` elements as
 If font-variant-position is not specified, browsers will synthesise sub/superscripts, so we need to manually turn off the synthesis. This is the only way to use a font’s proper sub/sup glyphs, however it’s **only safe to use this if** you know your font has glyphs for all the characters you are sub/superscripting. If the font lacks those characters (most only have sub/superscript numbers, not letters), then only Firefox (correctly) synthesises sup and sub - all other browsers will display normal characters in the regular way as we turned the synthesis off.
 
 ```
-.chemical { 
-    --opentype-sinf: "sinf" on;
+.chemical {
+    --opentype-sinf: on;
 }
 ```
 
