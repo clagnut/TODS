@@ -56,9 +56,26 @@ select {
 
 @font-face {
     font-family: "RobotoFlex";
-    src: url("RobotoFlex.woff2") format('woff2');
+    src:    url("RobotoFlex.woff2") format('woff2') tech(variations),
+            url("RobotoFlex.woff2") format('woff2-variations');
     font-weight: 1 1000;
     font-stretch: 50% 200%;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Bookmania";
+    src: url("bookmania-blackitalic.woff2") format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Bookmania";
+    src: url("bookmania-bold.woff2") format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: block;
 }
@@ -151,6 +168,52 @@ td.nums, th.nums, tr.nums th, tr.nums td {
 	text-align: right;
 }
 
+.bookmania {
+    font-family: "Bookmania", ui-serif, serif;
+    font-size: var(--step-4);
+}
+
+.bookmania + .bookmania {
+  --flow-space: 0em;
+}
+
+.bookmania1 {
+    font-weight:900;
+    font-style: italic;
+}
+
+.bookmania2 {
+    font-weight:700;
+    font-style: normal;
+}
+
+
+@font-feature-values "Bookmania" {
+    @swash {
+        bottom-right-swash-short: 17;
+        top-right-swash-long: 20;
+    }
+}
+
+@font-feature-values "Bookmania" {
+    @styleset {
+        bottom-left-swash-long: 16;
+        bottom-right-swash-long: 18;
+        bottom-right-swash-combo: 17 18;
+        top-swashes-bottom-left-swash-combo: 10 14 19;
+    }
+}
+
+.swsh17 { font-variant-alternates: swash(bottom-right-swash-short); }
+.swsh20 { font-variant-alternates: swash(top-right-swash-long); }
+
+.ss16 { font-variant-alternates: styleset(bottom-left-swash-long); }
+.ss18 { font-variant-alternates: styleset(bottom-right-swash-long); }
+.ss17-18 { font-variant-alternates: styleset(bottom-right-swash-combo); }
+.ss10-14-19 { font-variant-alternates: styleset(top-swashes-bottom-left-swash-combo); }
+
+
+
 .gradecompare {
 	display: flex;
 	gap:0.5em;
@@ -215,10 +278,10 @@ footer p {
 
 <p>The concept is that <abbr class="smallcaps">TODS</abbr> sets sensible typographic defaults for use on prose (a column of text like this one). For full details see the <a href="https://github.com/clagnut/TODS">readme in the Github repo</a>. The page you’re reading uses fairly random bits of text to demonstrate most aspects of <abbr class="smallcaps">TODS</abbr>, which you can toggle on and off.</p>
 
-<p><em>This page could be much better and is missing some stuff, such as a toggle to turn <abbr class="smallcaps">TODS</abbr> on and off, dark mode, and some advanced OpenType features like stylesets. Feel free to branch and edit.</em></p>
+<p><em>This page could be much better and is missing some stuff, such as dark mode. Feel free to branch and edit.</em></p>
 
 <h2>1440 ‒ 1500, the Incunabula</h2>
-<p>The word incunabula comes from the Latin cunae, meaning <q>cradle.</q> It can describe the earliest stages in the development of anything, but it has come to stand particularly for those book produced before 1500. The meagre information about Gutenberg and his works at the time of his death has not been substantially added to since.</p>
+<p>The word incunabula comes from the Latin cunae, meaning <q>cradle.</q> It can describe the earliest stages in the development of anything, but it has come to stand particularly for those books produced before 1500. The meagre information about Gutenberg and his works at the time of his death has not been substantially added to since.</p>
 
 <h3>The 42-line bible</h3>
 
@@ -260,9 +323,17 @@ footer p {
     </tbody>
 </table>
 
+<h2 class="bookmania bookmania1">Chicken</h2>
+<h2 class="bookmania bookmania1 dlig">Chic<span class="swsh17">k</span>e<span class="ss17-18">n</span></h2>
+
+<h2 class="bookmania bookmania2">Huevos</h2>
+<h2 class="bookmania bookmania2"><span class="ss10-14-19">H</span>ue<span class="swsh20">v</span>o<span class="ss16">s</span></h2>
+
+<p>The heading above should be made up of contextual ligatures, discretionary ligatures and various swashes.</p>
+
 <h2>Colophon</h2>
 
-<p>The fonts used on the page are Literata and Roboto Flex.</p>
+<p>The fonts used on the page are <a href="">Literata</a>, <a href="">Roboto Flex</a> and <a href="">Bookmania</a>.</p>
 
 <p>As of <time data-js="clock" datetime="00:00:00">00:00:00</time> we had <span data-js="counter" class="tnum">1000</span> likes.</p>
 
@@ -281,7 +352,7 @@ footer p {
 
 </div>
 
-<footer><p>This space intentionally left blank.</p></footer>
+<footer><p>The above space is intentionally left blank.</p></footer>
 
 <script>
 // Borrowed from https://codepen.io/barthendrix/pen/gOJXRRe with thanks
