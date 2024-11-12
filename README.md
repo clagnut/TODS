@@ -2,15 +2,15 @@
  
 This open source project was initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). See the original [blog post introducing TODS](https://clagnut.com/blog/2433) for more context.
 
-The idea is to set sensible typographic defaults for use on prose (a column of text), making particular use of the font features provided by OpenType. The main principle is that it can be used as starting point for all projects, so doesn't include design-specific aspects such as font choice, type scale or layout (including how you might like to set the line-length).
+The idea is to set sensible typographic defaults for use on prose (a column of text), making particular use of the font features provided by OpenType. The main principle is that it can be used as starting point for all projects, so doesn’t include design-specific aspects such as font choice, type scale or layout (including how you might like to set the line-length).
 
-Within the styles is mildly opinionated best practice, which will help set suitable styles should you forget. This means you can also use the style sheet as a checklist, even if you don't want to implement it as-is.
+Within the styles is mildly opinionated best practice, which will help set suitable styles should you forget. This means you can also use the style sheet as a checklist, even if you don’t want to implement it as-is.
 
 TODS uses OpenType features extensively and variable font axes where available. It makes full use of the cascade to set sensible defaults high up, with overrides applied further down. It also contains some handy utility classes.
 
 You can apply the `TODS.css` stylesheet in its entirety, as its full functionality relies on progressive enhancement within both browsers and fonts. Anything that is not supported will safely be ignored. The only possible exceptions to this are sub/superscripts and application of a grade axis in dark mode, as these are font-specific and could behave unexpectedly depending on the capability of the font.
 
-In order to preview some of the TODS features, you can check out the preview page `tods.html` and toggle `TODS.css` on and off. (This needs more work as the text is a bit of a mish-mash of examples and instructions, and its missing most of the utility classes. But that's what open source is for... free to fork, improve and add back into the repo.
+In order to preview some of the TODS features, you can check out the preview page `tods.html` and toggle `TODS.css` on and off. This needs more work as the text is a bit of a mish-mash of examples and instructions, and it’s missing some of the utility classes and dark mode. But that’s what open source is for… feel free to fork, improve and add back into the repo.
 
 ## Walkthrough of the `TODS.css` stylesheet
 
