@@ -1,5 +1,5 @@
 # Typography and Opentype Default Stylesheet (TODS)
- 
+
 This open source project was initiated following a conversation at [CSS Day](https://cssday.nl/2024/speakers#roel) with [Roel Nieskens](https://pixelambacht.nl/) and his [Mildly Opinionated Prose Styles (MOPS)](https://github.com/RoelN/mops). See the original [blog post introducing TODS](https://clagnut.com/blog/2433) for more context.
 
 The idea is to set sensible typographic defaults for use on prose (a column of text), making particular use of the font features provided by OpenType. The main principle is that it can be used as starting point for all projects, so doesn’t include design-specific aspects such as font choice, type scale or layout (including how you might like to set the line-length).
@@ -39,10 +39,13 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
 }
 ```
 
 Prevent font size inflation when rotating from portrait to landscape. The [best explainer for this is by Kilian](https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/). He also explains why we still need those ugly prefixes too.
+
+Since 2018, macOS hasn't used subpixel-antialiasing, [except in web browsers](https://dbushell.com/2024/11/05/webkit-font-smoothing/). This turns it off to give you more consistency across.
 
 ```
 body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
@@ -131,14 +134,14 @@ body {
 Set a nice legible line height that gets inherited. The `font-` properties are set too default CSS and OpenType settings, however they are  still worth setting specifically just in case.
 
 ```
-button, input, label { 
-    line-height: 1.1; 
+button, input, label {
+    line-height: 1.1;
 }
 ```
 
 Set shorter line heights on interactive elements. We’ll do the same for headings later on.
 
-### 4. Block spacing 
+### 4. Block spacing
 
 Reinstate block margins we removed in the reset section. We’re setting consistent spacing based on font size on primary elements within ‘flow’ contexts. The entire ‘prose’ area is a flow context, but so might other parts of the page. For more details on the ‘flow’ utility see Andy Bell’s [favourite three lines of CSS](https://piccalil.li/blog/my-favourite-3-lines-of-css).
 
@@ -227,7 +230,7 @@ Other Opentype features can have multiple glyphs, accessible via an index number
 .nalt2 { font-variant-alternates: annotation(boxed); }
 ```
 
-Handy utility classes showing how to access the font feature values you set up earlier using the `font-variant-alternates` property. 
+Handy utility classes showing how to access the font feature values you set up earlier using the `font-variant-alternates` property.
 
 ```
 :root {
@@ -254,7 +257,7 @@ Set custom properties for OpenType features only available through low level `fo
 
 ### 6. Generic helper classes
 
-Some utilities to help ensure best typographic practice. 
+Some utilities to help ensure best typographic practice.
 
 ```
 .centered {
@@ -277,7 +280,7 @@ When fully capitalising text, ensure punctuation designed to be used within caps
 ```
 .smallcaps {
     font-variant-caps: all-small-caps;
-    font-variant-numeric: oldstyle-nums;    
+    font-variant-numeric: oldstyle-nums;
 }
 ```
 
@@ -300,9 +303,9 @@ Firstly we get ourselves better widow/orphan control, aiming for blocks of text 
 Also adjust the size of fallback fonts to match the webfont to maintain legibility with fallback fonts and reduce visible reflowing. The `font-size-adjust` number is the aspect ratio of the webfont, which you can [calculate using this tool](https://clagnut.com/sandbox/font-size-adjust-ex.html) (Chrome only).
 
 ```
-strong, b, th { 
+strong, b, th {
     font-weight: bold;
-    font-size-adjust: 0.514; 
+    font-size-adjust: 0.514;
 }
 ```
 
@@ -311,8 +314,8 @@ Apply a different adjustment to elements which are typically emboldened by defau
 ### 8. Headings
 
 ```
-h1, h2, h3, h4 { 
-    line-height: 1.1; 
+h1, h2, h3, h4 {
+    line-height: 1.1;
     font-size-adjust: 0.514;
     font-variant-numeric: lining-nums; }
 ```
@@ -321,7 +324,7 @@ Set shorter line heights on your main headings. Set an aspect ratio for fallback
 
 ```
 h1 {
-    font-variant-ligatures: discretionary-ligatures; 
+    font-variant-ligatures: discretionary-ligatures;
     font-size-adjust: 0.521;
 }
 ```
@@ -374,7 +377,11 @@ For chemical formulae like H2O, use scientific inferiors instead of `SUB`.
 
 ```
 td, math, time[datetime*=":"] {
-    font-variant-numeric: tabular-nums lining-nums slashed-zero;    
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+code {
+  font-variant-numeric: slashed-zero;
 }
 ```
 
@@ -423,7 +430,7 @@ Append quotes to the first and last paragraphs in the blockquote.
     margin-inline-start: -0.87ch; /* Adjust according to font */
 }
 .quoted p {
-    hanging-punctuation: first last;
+    hanging-punctuation: first allow-end last;
 }
 @supports(hanging-punctuation: first last) {
     .quoted p:first-of-type::before {
@@ -444,10 +451,10 @@ Turn on hyphenation for prose. Language is required in order for the browser to 
     -webkit-hyphenate-limit-before: 4;
     -webkit-hyphenate-limit-after: 3;
     -webkit-hyphenate-limit-lines: 2;
-    
+
     hyphens: auto;
     hyphenate-limit-chars: 7 4 3;
-    hyphenate-limit-lines: 2;    
+    hyphenate-limit-lines: 2;
     hyphenate-limit-zone: 8%;
     hyphenate-limit-last: always;
 }

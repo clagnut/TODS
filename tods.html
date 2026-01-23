@@ -14,6 +14,7 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
@@ -101,7 +102,7 @@ body {
 	font-family: "Literata", ui-serif, serif;
     font-size: var(--step-0);
 }
-h1, h2, h3, h4 { 
+h1, h2, h3, h4 {
     line-height: 1.1;
 }
 h1 {
@@ -138,6 +139,7 @@ blockquote {
 
 code {
     font-family: "Inconsolata", ui-monospace, monospace;
+    font-variant-numeric: slashed-zero;
 }
 
 table {
@@ -270,7 +272,7 @@ footer p {
 <form>
     <label for="tods-switch">Toggle TODS</label>
     <input type="checkbox" checked switch id="tods-switch" />
-</form>    
+</form>
 </div>
 
 <div class="prose flow">
@@ -367,11 +369,11 @@ function showTime() {
   const second = date.getSeconds(); // 0 - 59
 
   const time = `${doubleDigits(hour)}:${doubleDigits(minute)}:${doubleDigits(second)}`;
-  
+
   clock.innerText = time;
   clock.dateTime = time;
 }
- 
+
 function animateCounter () {
   const counter = document.querySelector('[data-js="counter"]');
   if(!counter) return;

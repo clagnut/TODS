@@ -9,6 +9,7 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
@@ -72,13 +73,13 @@ body {
     font-kerning: normal;
 }
 
-button, input, label { 
+button, input, label {
     line-height: 1.1;
 }
 
 
 /*
-4. Block spacing 
+4. Block spacing
 */
 
 .flow > * + * {
@@ -169,7 +170,7 @@ button, input, label {
 
 .smallcaps {
     font-variant-caps: all-small-caps;
-    font-variant-numeric: oldstyle-nums;    
+    font-variant-numeric: oldstyle-nums;
 }
 
 
@@ -183,7 +184,7 @@ button, input, label {
     font-size-adjust: 0.507;
 }
 
-strong, b, th { 
+strong, b, th {
     font-weight: bold;
     font-size-adjust: 0.514; /* Check for the different weights you may be using */
 }
@@ -193,7 +194,7 @@ strong, b, th {
 8. Headings
 */
 
-h1, h2, h3, h4 { 
+h1, h2, h3, h4 {
     line-height: 1.1;
     font-size-adjust: 0.514;
     font-variant-numeric: lining-nums;
@@ -238,7 +239,11 @@ h1.uppercase {
 */
 
 td, math, time[datetime*=":"] {
-    font-variant-numeric: tabular-nums lining-nums slashed-zero;    
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+code {
+  font-variant-numeric: slashed-zero;
 }
 
 
@@ -264,7 +269,7 @@ q::after  { content: close-quote }
     margin-inline-start: -0.87ch;
 }
 .quoted p {
-    hanging-punctuation: first last;
+    hanging-punctuation: first allow-end last;
 }
 @supports(hanging-punctuation: first last) {
     .quoted p:first-of-type::before {
@@ -283,10 +288,10 @@ Remember to set lang
     -webkit-hyphenate-limit-before: 4;
     -webkit-hyphenate-limit-after: 3;
     -webkit-hyphenate-limit-lines: 2;
-    
+
     hyphens: auto;
     hyphenate-limit-chars: 7 4 3;
-    hyphenate-limit-lines: 2;    
+    hyphenate-limit-lines: 2;
     hyphenate-limit-zone: 8%;
     hyphenate-limit-last: always;
 }
