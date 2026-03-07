@@ -29,6 +29,7 @@ Table of contents:
 11. Quotes
 12. Hyphenation
 13. Dark mode/inverted text
+14. Code formatting
 
 ### 1. Reset
 
@@ -66,12 +67,6 @@ select {
 ```
 
 Inherit fonts for inputs and buttons.
-
-```
-pre { white-space: pre-wrap; }
-```
-
-Preserve whitespace formatting but allow text to wrap.
 
 ### 2. Web fonts
 
@@ -385,13 +380,9 @@ For chemical formulae like H2O, use scientific inferiors instead of `SUB`.
 td, math, time[datetime*=":"] {
     font-variant-numeric: tabular-nums lining-nums slashed-zero;
 }
-
-code {
-  font-variant-numeric: slashed-zero;
-}
 ```
 
-Make sure all numbers in tables are lining tabular numerals, adding slashed zeroes for clarity. This could usefully apply where a time is specifically marked up, as well as in mathematics and code.
+Make sure all numbers in tables are lining tabular numerals, adding slashed zeroes for clarity. This could usefully apply where a time is specifically marked up, as well as in mathematics.
 
 ### 11. Quotes
 
@@ -491,3 +482,18 @@ Reduce grade if available to prevent bloom of inverted type.
 ```
 
 Not all fonts have a grade (`GRAD`) axis, and the grade number is font-specific. We're using the customer property method because `font-variation-settings` provides low-level control meaning each subsequent use of the property completely overrides prior use - the values are not inherited or combined, unlike with `font-variant` for example.
+
+### 14. Code formatting
+
+```
+pre {
+  white-space: pre-wrap;
+  text-wrap: auto;
+}
+
+code {
+  font-variant-numeric: slashed-zero;
+}
+```
+
+Preserve whitespace formatting but allow text to wrap normally. Use slashed zeroes in code for added clarity.

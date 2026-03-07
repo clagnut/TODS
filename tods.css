@@ -24,8 +24,6 @@ select {
   font-size: inherit;
 }
 
-pre { white-space: pre-wrap; }
-
 /*
 2. Web fonts
 */
@@ -243,11 +241,6 @@ td, math, time[datetime*=":"] {
     font-variant-numeric: tabular-nums lining-nums slashed-zero;
 }
 
-code {
-  font-variant-numeric: slashed-zero;
-}
-
-
 /*
 11. Quotes
 */
@@ -316,4 +309,18 @@ h1, h2, h3, h4, h5, h6 {
 
 * {
   font-variation-settings: "GRAD" var(--vf-grad, 0);
+}
+
+
+/*
+14. Code formatting
+*/
+
+pre {
+  white-space: pre-wrap;
+  text-wrap: auto;
+}
+
+code {
+  font-variant-numeric: slashed-zero;
 }
