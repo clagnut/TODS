@@ -45,7 +45,7 @@ html {
 
 Prevent font size inflation when rotating from portrait to landscape. The [best explainer for this is by Kilian](https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/). He also explains why we still need those ugly prefixes too.
 
-Since 2018, macOS hasn't used subpixel-antialiasing, [except in web browsers](https://dbushell.com/2024/11/05/webkit-font-smoothing/). This turns it off to give you more consistency across.
+Since 2018, macOS hasn't used subpixel-antialiasing, [except in web browsers](https://dbushell.com/2024/11/05/webkit-font-smoothing/). This turns it off to give you more consistency across operating systems.
 
 ```
 body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
@@ -66,6 +66,12 @@ select {
 ```
 
 Inherit fonts for inputs and buttons.
+
+```
+pre { white-space: pre-wrap; }
+```
+
+Preserve whitespace formatting but allow text to wrap.
 
 ### 2. Web fonts
 
@@ -131,7 +137,7 @@ body {
 }
 ```
 
-Set a nice legible line height that gets inherited. The `font-` properties are set too default CSS and OpenType settings, however they are  still worth setting specifically just in case.
+Set a nice legible line height that gets inherited. The `font-` properties are set to default CSS and OpenType settings, however they are  still worth setting specifically just in case.
 
 ```
 button, input, label {
@@ -169,10 +175,10 @@ Set generous spacing between primary block elements (in this case it’s the sam
 .dlig.hlig { font-variant-ligatures: discretionary-ligatures historical-ligatures; } /* Apply both historic and discretionary */
 
 .pnum { font-variant-numeric: proportional-nums; }
-.tnum { font-variant-numeric: tabular-nums;    }
+.tnum { font-variant-numeric: tabular-nums; }
 .lnum { font-variant-numeric: lining-nums; }
 .onum { font-variant-numeric: oldstyle-nums; }
-.zero { font-variant-numeric: slashed-zero;    }
+.zero { font-variant-numeric: slashed-zero; }
 .pnum.zero { font-variant-numeric: proportional-nums slashed-zero; } /* Apply slashed zeroes to proportional numerals */
 .tnum.zero { font-variant-numeric: tabular-nums slashed-zero; }
 .lnum.zero { font-variant-numeric: lining-nums slashed-zero; }
@@ -298,7 +304,7 @@ Assign a `.prose` class to your running text, that is to say an entire piece of 
 }
 ```
 
-Firstly we get ourselves better widow/orphan control, aiming for blocks of text to not end with a line containing a word on its own. Also we use proportional old-style numerals in running text.
+Firstly we get ourselves better widow/orphan control, aiming for blocks of text not ending with a line containing a word on its own. Also we use proportional old-style numerals in running text.
 
 Also adjust the size of fallback fonts to match the webfont to maintain legibility with fallback fonts and reduce visible reflowing. The `font-size-adjust` number is the aspect ratio of the webfont, which you can [calculate using this tool](https://clagnut.com/sandbox/font-size-adjust-ex.html) (Chrome only).
 
@@ -385,7 +391,7 @@ code {
 }
 ```
 
-Make sure all numbers in tables are lining tabular numerals, adding slashed zeroes for clarity. This could usefully apply where a time is specifically marked up, as well as in mathematics.
+Make sure all numbers in tables are lining tabular numerals, adding slashed zeroes for clarity. This could usefully apply where a time is specifically marked up, as well as in mathematics and code.
 
 ### 11. Quotes
 
@@ -426,20 +432,12 @@ Punctuation order for blockquotes, using a utility class to surround with double
 Append quotes to the first and last paragraphs in the blockquote.
 
 ```
-.quoted p:first-of-type::before {
-    margin-inline-start: -0.87ch; /* Adjust according to font */
-}
-.quoted p {
+.prose {
     hanging-punctuation: first allow-end last;
-}
-@supports(hanging-punctuation: first last) {
-    .quoted p:first-of-type::before {
-        margin-inline-start: 0;
-    }
 }
 ```
 
-Hang the punctuation outside of the blockquote. Firstly manually hang punctuation with a negative margin,  then remove the manual intervention and use `hanging-punctuation` if supported.
+Hang all punctuation in your prose block.
 
 ### 12. Hyphenation
 
@@ -463,8 +461,8 @@ Turn on hyphenation for prose. Language is required in order for the browser to 
 Include [additional refinements](https://clagnut.com/blog/2395/) to hyphenation. Respectively, these stop short words being hyphenated, prevent ladders of hyphens, and reduce overall hyphenation a bit. Safari uses legacy properties to achieve some of the same effects, hence the ugly prefixes and slightly different syntax.
 
 ```
-.prose pre, .prose code, .prose var, .prose samp, .prose kbd,
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+pre, code, var, samp, kbd,
+h1, h2, h3, h4, h5, h6 {
     -webkit-hyphens: manual;
     hyphens: manual;
 }

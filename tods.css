@@ -24,6 +24,7 @@ select {
   font-size: inherit;
 }
 
+pre { white-space: pre-wrap; }
 
 /*
 2. Web fonts
@@ -265,16 +266,8 @@ q::after  { content: close-quote }
     content: '”';
 }
 
-.quoted p:first-of-type::before {
-    margin-inline-start: -0.87ch;
-}
-.quoted p {
+.prose {
     hanging-punctuation: first allow-end last;
-}
-@supports(hanging-punctuation: first last) {
-    .quoted p:first-of-type::before {
-        margin-inline-start: 0;
-    }
 }
 
 
@@ -296,8 +289,8 @@ Remember to set lang
     hyphenate-limit-last: always;
 }
 
-.prose pre, .prose code, .prose var, .prose samp, .prose kbd,
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+pre, code, var, samp, kbd,
+h1, h2, h3, h4, h5, h6 {
     -webkit-hyphens: manual;
     hyphens: manual;
 }
